@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: SimSun-ExtB;
+    font-weight: 800;
+    letter-spacing: 2pt;
+    
+    color: white;
+}
+header{
+    padding: 10px;
+    background-color: rgb(153, 0, 255);
+    box-shadow: 2px 2px 4px rgb(95, 95, 95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+a{
+    color: white;
+    text-decoration: none;
+    padding: 0 20px;
+}
+.container{
+    padding: 0 10px;
+    padding-top: 10px;
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    background-color: rgb(219, 219, 219);
+    display: grid;
+    grid-template-areas: "a a a a"
+                         "b c c d"
+                         "b c c e"
+                         "b c c e";
+    gap: 1rem;
+}
+.container div{
+    /*background-color: rgb(255, 255, 255);*/
+    box-shadow: 2px 2px 8px rgb(194, 194, 194);
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+.header{
+    grid-area: a;
+    background-color: red;
+}
+.nav{
+    grid-area: b;
+    background-color: rgb(26, 228, 26);
+}
+.corpo{
+    grid-area: c;
+    background-color: blue;
+}
+.footer{
+    grid-area: d;
+    background-color: blueviolet;
+}
+.outro{
+    grid-area: e;
+    background-color: rgb(224, 125, 141);
+}
+.outro i{
+    color: blue;
+}
+

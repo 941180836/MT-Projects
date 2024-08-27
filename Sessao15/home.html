@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+        <div class="perfil">
+            <img src="../assets/img/Logo-Mockup-3D-Glass-Window-PSD-2.jpg" alt="">
+            <p class="txt" contenteditable="true"></p>
+            <button>Salvar</button>
+        </div>
+        <ul>
+            <li></li>
+        </ul>
+    </header>
+
+    <script>
+        const logado = JSON.parse(sessionStorage.getItem("UserLogado")) 
+        const editable = document.querySelector(".txt")
+        editable.innerHTML = logado.nomeUsuario
+
+        editable.onclick = () =>{
+            document.querySelector("button").style.opacity="1"
+            document.querySelector("button").style.pointerEvents="all"
+        }
+
+        document.querySelector("button").addEventListener('click', () =>{
+            let senhaInput = prompt("Digite a sua senha para verificação")
+            let senhaVerificar = JSON.parse(sessionStorage.getItem("UserLogado")) || []
+            console.log(senhaVerificar)
+
+            const verificacao = senhaVerificar.senhaUsuario === senhaInput
+            if (verificacao) {
+                updateNome()
+            }else{
+                alert("Senha Incorreta")
+            }
+            
+            
+            //updateNome()
+        })
+
+        function updateNome() {
+            // Dados de todos Ususarios no bd (LocalStorage)
+            const users_db = JSON.parse(localStorage.getItem("users")) || []
+            const  userLogado = JSON.parse(sessionStorage.getItem("UserLogado"))
+            if (userLogado) {
+                console.log(userLogado)
+                const userIndiceVerificador = users_db.findIndex(user => user.nomeUsuario === userLogado.nomeUsuario)
+
+                if (userIndiceVerificador !== -1) {
+                    users_db[userIndiceVerificador].nomeUsuario = editable.outerText
+
+                    localStorage.setItem('users', JSON.stringify(users_db))
+                    sessionStorage.setItem("UserLogado", JSON.stringify(users_db[userIndiceVerificador]))
+                }else{
+                    alert("Como entraste aqui?? kkkk")
+                }
+            }
+        }
+    </script>
+</body>
+</html>

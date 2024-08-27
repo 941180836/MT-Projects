@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nomeProduto = window.prompt("Informe o nome do produto: ")
+
+        var precoProduto = Number(window.prompt("Informe o preco do produto: "))
+
+        var descontoProduto = Number(window.prompt("Informe o desconto do produto em percentagem:"))
+
+        console.log("Calculando...")
+        
+        setTimeout(() => {
+            conversaoAplicada(precoProduto, descontoProduto)
+        }, 2000);
+
+        function conversaoAplicada(precoProduto, descontoProduto) {
+            var conversao = calculoDescontoPercentual(descontoProduto)
+
+            var descontoAplicado = precoProduto * conversao
+
+            var saida = precoProduto - descontoAplicado
+
+            console.log("Os dados apresentados: \n |Nome do Produto: " + nomeProduto + "\n |Preco do Produto: " + precoProduto + "Akz\n |Desconto aplicado: " + descontoProduto + "% que  correspondem a " + descontoAplicado +"Akz\n")
+            console.log("---------------------------")
+            console.log("       Saida dos Dados     ")
+            console.log("---------------------------")
+            console.log("O valor a pagar é: " + saida +"Akz")
+            
+        }
+
+        function calculoDescontoPercentual(valor){
+            var convertido = (valor/100)
+            return convertido
+        }
+    </script>
+</body>
+</html>

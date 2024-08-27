@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          
+       function ePrimo(num) {
+           if(num <= 1) return false // numeros menores ou igusid 1 nao sao primos
+
+           if(num === 2) return true // é o unico numero par primo
+
+           if(num % 2 === 0) return false // Elimina multiplos de 2
+
+           const sqrt = Math.sqrt(num) // Raiz quadrada do numero para otimizar as comparacoes
+
+           for (let i = 3; i <= sqrt; i += 2) {
+               if(num % i === 0) return false // Se divisivel por qualquer numero, nao e primo
+           }
+
+           return true
+       }
+
+       
+
+    var numero = Number(window.prompt("Digite: "))
+    if (ePrimo(numero)) {
+        alert("É primo")
+    }else{
+        alert("Não é primo")
+    }
+    </script>
+</body>
+</html>
